@@ -2,15 +2,20 @@
 
 {% block content1 %}
  <form class="navbar-form navbar-right">
-            <div class="form-group">
+
+<!--             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-            <button type="submit" class="btn btn-success">Registration</button>
-            <link >Forgotten Password</link>
+            </div> -->
+            <a href="{% url 'signin' %}">
+              <button type="button" class="btn btn-success" >Sign in</button>
+            </a>
+            <a href="{% url 'register' %}"
+            <button type="button" class="btn btn-success">Registration</button>
+            </a>
+            <!-- <link >Forgotten Password</link> -->
           </form>
 {% endblock content1 %}
 
@@ -39,4 +44,3 @@
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
 {% endblock content2 %}
-
