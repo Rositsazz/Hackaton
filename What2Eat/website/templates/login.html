@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content2 %}
+
+<p></p>
+<form action="/index/" method="post">
+<h2> Hello, MasterChef </h2>
+  <div>
+    <input type="text" name="username" placeholder="Username" required/>
+  </div>
+<p></p>
+  <div>
+    <input type="password" name="password" placeholder="Password" min="8" required/>
+  </div>
+
+  <p></p>
+  <a href="/">Forgotten password</a>  
+  <p></p>
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">Login</a></p>
+</form>
+
+{% endblock content2 %}
+

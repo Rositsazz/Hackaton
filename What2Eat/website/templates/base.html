@@ -20,7 +20,7 @@
 
   </head>
 
-  <body>
+  <body >
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -34,25 +34,21 @@
           <a class="navbar-brand" href="#">What2Eat</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-
-
-            <button type="submit" class="btn btn-success">Sign Out</button>
-          </form>
+{% block content1%}
+{% endblock content1%}
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" >
       <div class="container">
 
-      </div>
-    </div>
+{% block content2%}
 
-    <div class="container">
+{% endblock content2 %}
 
-        </div>
+
       </div>
 
       <hr>
