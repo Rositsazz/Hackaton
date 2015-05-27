@@ -26,7 +26,7 @@ class User(models.Model):
 class Recipe(models.Model):
     name = models.CharField(max_length=200)
     products = models.CharField(max_length=1000)
-    prepare_time = models.CharField(max_length=15)
+    prepare_time = models.PositiveSmallIntegerField()
     instructions = models.CharField(max_length=5000)
     image = models.CharField(max_length=300)
     total_fat = models.FloatField()
