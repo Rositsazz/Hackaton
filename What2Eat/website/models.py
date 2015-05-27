@@ -31,6 +31,8 @@ class Recipe(models.Model):
     image = models.CharField(max_length=300)
     total_fat = models.FloatField()
     protein = models.FloatField()
+    healthy_coef = models.FloatField()
+    keywords = models.CharField(max_length=1000)
     servings = models.PositiveSmallIntegerField()
 
     def __str__(self):
