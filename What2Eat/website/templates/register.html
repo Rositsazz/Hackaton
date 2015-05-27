@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content2%}
+<p></p>
+<form action="{% url 'register' %}" method="POST">
+{% csrf_token %}
+<fieldset>
+<legend>Personal information:</legend>
+  <div>
+    <input type="text" name="username" placeholder="Username" required/>
+  </div>
+<p></p>
+  <div>
+    <input type="email" name="email" placeholder="Email" required/>
+  </div>
+<p></p>
+  <div>
+    <input type="password" name="password" placeholder="Password" min="8" required/>
+  </div>
+
+<p></p>
+  <div>
+    <input type="password" name="password" placeholder="Password Again"/>
+  </div>
+  </fieldset>
+  <p></p>
+  <input type="submit" value="Register" class="btn btn-primary btn-lg"/>
+        <!-- <p><a class="btn btn-primary btn-lg" href="login" role="button">Register now</a></p> -->
+</form>
+{% endblock content2 %}
