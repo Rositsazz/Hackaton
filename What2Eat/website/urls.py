@@ -7,4 +7,5 @@ urlpatterns = patterns('website.views',
     url(r'signin/$', 'signin', name='signin'),
     url(r'logged/$', 'logged', name='logged'),
     url(r'dummy/$', 'dummy', name='dummy'),
+    url(r'userlogout/$', 'userlogout', name='userlogout'),
 )

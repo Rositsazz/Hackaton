@@ -3,16 +3,17 @@ from django.http import HttpResponseBadRequest, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 # from .models import Recipe, User
+from django.template import RequestContext
 
 
 def index(request):
     if request.user.is_authenticated():
-        return redirect("logged.html")   # todo logged.hmtl
+        return redirect("logged")   # todo logged.hmtl
 
     if request.method == "POST":
         print("hellloouuuuu")
     else:
-        return render(request, 'index.html', locals())
+        return render(request, 'index.html', RequestContext(**locals()))
 
 
 def _validate_register(username, email, password):
@@ -67,8 +68,16 @@ def signin(request):
 
 
 def logged(request):
-    return render(request, "logged.html")
+    # if not request.user.is_authenticated():
+    #     return redirect("signin")
+
+    return render(request, "logged.html", RequestContext(request))
 
 
 def dummy(request):
     return render(request, "dummy.html")
+
+
+def userlogout(request):
+    logout(request)
+    return redirect("index")
