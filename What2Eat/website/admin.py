@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, ProductToBuy, Recipe, Shop, LastCookedRecipe, User_card
+from .models import User, ProductToBuy, Recipe, Shop, LastCookedRecipe, UserCard
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -13,4 +13,4 @@ admin.site.register(ProductToBuy)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Shop)
 admin.site.register(LastCookedRecipe)
-admin.site.register(User_card)
+admin.site.register(UserCard)
