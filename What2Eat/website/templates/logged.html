@@ -21,8 +21,8 @@
 {% block content2%}
 <div class="row">
   <div class="col-md-12">
-    <h1 >Hello, MasterChef!</h1>
-    <p >Enter the products you want here:</p>
+    <h1>Hello, MasterChef!</h1>
+    <p>Enter the products you want here:</p>
   </div>
 </div>
 
@@ -42,24 +42,25 @@
     &nbsp;
   </div>
 </div>
-<div class="row">
-  <div class="col-md-8">
-    <form >
-      <select id="products" class="form-control" multiple="multiple">
-      </select>
-    </form>
+<form action="/findrecipe/" method="POST" id="addProductForm">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-8">
+        <select id="products" name="products" class="form-control" multiple="multiple" form="addProductForm">
+        </select>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    &nbsp;
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <button type="submit" class="btn btn-primary">Find recipes</button>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary">Find recipes</button>
+    </div>
   </div>
-</div>
+</form>
 <script type="text/javascript">
   function addProduct(value) {
     var container = document.getElementById("products");
@@ -67,6 +68,8 @@
     option.text = value;
     option.value = value;
     container.options.add(option);
+    var hidden_input = $('<input type="hidden" name="product_list[]" value="' + value + '">');
+    $('#addProductForm').append(hidden_input);
     var product_input = document.getElementById("product");
     product_input.value = "";
     product_input.focus();

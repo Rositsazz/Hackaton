@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content2%}
+	<table class="table table-striped">
+	{% for recipe in recipes %}
+		<tr>
+			<td>{{ recipe.name }}</td> 
+			<td>{{ recipe.healthy_coef }}</td>
+			<td>{{ recipe.prepare_time }} mins</td>
+			<td><img src="{{ recipe.image }}" width="200" /></td>
+			<td>
+				<form action="/openrecipe/" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="recipe_id" value="{{ recipe.id }}" />
+					<button type="submit" class="btn btn-success">Open recipe</button>
+				</form>
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endblock content2 %}

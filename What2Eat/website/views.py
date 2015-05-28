@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-# from .models import Recipe, User
+from .models import Recipe, User
 from django.template import RequestContext
 
 
@@ -81,3 +81,18 @@ def dummy(request):
 def userlogout(request):
     logout(request)
     return redirect("index")
+
+
+def findrecipe(request):
+    if request.method == "POST":
+        products = request.POST.getlist("product_list[]")
+        recipes = Recipe.objects.all()
+        for product in products:
+            recipes = recipes.filter(products__contains=product)
+        recipes = recipes[:20]
+        return render(request, "recipes.html", {"recipes": recipes})
+
+
+def openrecipe(request):
+    if request.method == "POST":
+        pass

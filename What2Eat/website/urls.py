@@ -8,4 +8,5 @@ urlpatterns = patterns('website.views',
     url(r'logged/$', 'logged', name='logged'),
     url(r'dummy/$', 'dummy', name='dummy'),
     url(r'userlogout/$', 'userlogout', name='userlogout'),
+    url(r'findrecipe/$', 'findrecipe', name='findrecipe'),
 )

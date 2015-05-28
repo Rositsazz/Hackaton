@@ -18,7 +18,7 @@ with open("recipes_popular.json", "r") as f:
         elif "hr" in recipe["prepare_time"]:
             recipe["prepare_time"] = 60
 
-        coef = recipe["total_fat"] / recipe["protein"]
+        coef = recipe["total_fat"] / recipe["protein"] if recipe["protein"] != 0 else 1000
         keywords = ""
 
         query = "INSERT INTO website_recipe (instructions, name, servings, products, image, total_fat, prepare_time, protein, healthy_coef, keywords) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
