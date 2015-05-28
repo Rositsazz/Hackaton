@@ -9,4 +9,7 @@ urlpatterns = patterns('website.views',
     url(r'dummy/$', 'dummy', name='dummy'),
     url(r'userlogout/$', 'userlogout', name='userlogout'),
     url(r'findrecipe/$', 'findrecipe', name='findrecipe'),
+    url(r'^get_suggested/$', 'get_suggested'),
+    url(r'^get_suggested_recipes/$', 'get_suggested_recipes'),
+    url(r'^find_suggested_recipes/$', 'find_suggested_recipes'),
 )

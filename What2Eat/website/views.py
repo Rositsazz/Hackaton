@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Recipe
 from django.template import RequestContext
+from website import suggest_recipes
 
 
 def index(request):
@@ -96,3 +97,18 @@ def findrecipe(request):
 def openrecipe(request):
     if request.method == "POST":
         pass
+
+
+def find_suggested_recipes(request):
+    suggest_recipes.suggested("Roasted Baby Red Potatoes")
+    return HttpResponse("bla")
+
+
+def get_suggested_recipes(request):
+    with open("suggested_recipes.json", "r") as f:
+        content = f.read()
+    return HttpResponse(content)
+
+
+def get_suggested(request):
+    return render(request, "suggested.html")
