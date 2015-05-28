@@ -8,21 +8,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../static/css/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <title>Jumbotron Template for Bootstrap</title>
-
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
+  <title>What2Eat</title>
 
   <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
   <link href="jumbotron.css" rel="stylesheet">
-
   <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
 </head>
 
 <body >
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav style="height:80px" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,15 +30,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>  
-        <a class="navbar-brand" href="/">What2Eat</a>
+        <a style="margin-top:17px;font-weight:bolder" class="navbar-brand" href="#">What2Eat</a>
       </div>
-      <div align="right" id="navbar" class="navbar-collapse collapse">
+      <div align="right" id="navbar" class="navbar-collapse collapse ">
         {% if user.is_authenticated %}
         <a href="{% url 'userlogout' %}">
-          <button type="button" class="btn btn-success">Logout</button>
+          <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:22px;">
+            Logout
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
         </a>
         <div class="col-md-10">
-          <button type="button" class="btn btn-success">Profile</button>
+          <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:22px;">
+          <span class="glyphicon glyphicon-user"></span>
+          Profile</button>
         </div>
         {% else %}
         <div class="row">
@@ -47,12 +51,18 @@
             <div class="col-md-6">
               <a href="{% url 'signin' %}">
 
-                <button type="button" class="btn btn-success" >Sign in</button>
+                <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:15px">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Sign in
+                </button>
               </a>
             </div>
             <div class="col-md-6">
               <a href="{% url 'register' %}"
-              <button type="button" class="btn btn-success">Registration</button>
+              <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:15px">
+              Registration
+              <span class="glyphicon glyphicon-book"></span>
+              </button>
             </a>
           </div>
 
@@ -70,7 +80,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron" >
+<div style="height:50px" class="jumbotron" >
   <div class="container">
 
     {% block content2%}

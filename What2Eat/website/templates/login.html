@@ -4,7 +4,7 @@
 
 <p></p>
 <form action="/signin/" method="POST">
-<h2> Hello, MasterChef </h2>
+<h2 style="margin-top:50px"> Hello, MasterChef </h2>
   <div>
   {% csrf_token %} 
     <input type="text" name="username" placeholder="Username" required/>
@@ -17,7 +17,7 @@
   <p></p>
   <a href="/">Forgotten password</a>  
   <p></p>
-  <button type="submit" class="btn btn-success">Login</button>
+  <button type="submit" class="btn btn-success" style="font-weight:bolder;">Login</button>
 </form>
 
 {% endblock content2 %}
