@@ -89,19 +89,20 @@ def findrecipe(request):
         products = request.POST.getlist("product_list[]")
         recipes = Recipe.objects.all()
         for product in products:
-            recipes = recipes.filter(products__contains=product)
-        recipes = recipes[:20]
+            recipes = recipes.filter(products__contains=product).order_by("?")
+        recipes = recipes[:31]
         return render(request, "recipes.html", {"recipes": recipes})
 
 
-def openrecipe(request):
-    if request.method == "POST":
-        pass
+def openrecipe(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+    return render(request, "recipe.html", locals())
 
 
-def find_suggested_recipes(request):
-    suggest_recipes.suggested("Roasted Baby Red Potatoes")
-    return HttpResponse("bla")
+def find_suggested_recipes(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+    suggest_recipes.suggested(recipe.name)
+    return redirect("/get_suggested/")
 
 
 def get_suggested_recipes(request):

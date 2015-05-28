@@ -9,11 +9,12 @@
 			<td>{{ recipe.prepare_time }} mins</td>
 			<td><img src="{{ recipe.image }}" width="200" /></td>
 			<td>
-				<form action="/openrecipe/" method="POST">
-					{% csrf_token %}
-					<input type="hidden" name="recipe_id" value="{{ recipe.id }}" />
-					<button type="submit" class="btn btn-success">Open recipe</button>
-				</form>
+				<a href="/openrecipe/{{ recipe.id }}/">
+					<button class="btn btn-success">Open recipe</button>
+				</a>
+				<a href="/find_suggested_recipes/{{ recipe.id }}/">
+					<button>Similar recipes</button>
+				</a>
 			</td>
 		</tr>
 	{% endfor %}
