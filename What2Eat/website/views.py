@@ -107,10 +107,9 @@ def find_suggested_recipes(request, recipe_id):
 
 def get_suggested_recipes(request):
     with open("suggested_recipes.json", "r") as f:
-        recipes = f.load()
-        for recipe in recipes:
-            recipe_name = recipe[0]
-            coef =
+        content = f.read()
+        # for recipe in recipes:
+        #     recipe_name = recipe[0]
     return HttpResponse(content)
 
 
