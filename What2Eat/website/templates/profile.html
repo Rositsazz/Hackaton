@@ -1,44 +1,64 @@
 {% extends "base.html" %}
 
 {% block content2%}
+<br></br>
 <h2>Hello, Master {{ user.username }}!</h2>
 <hr></hr>
 <style type="text/css">
-.recipe_label {
-	font-weight: bold;
-}
-.recipe_photo{
-	border-radius: 10px;
-  	border: 1px black solid;
-  	padding: 2px;
-}
+
 </style>
 <form method="POST" action="/profile/{{ user.id }}">
-  <div>
-  {% csrf_token %} 
-    <input type="text" name="address" placeholder="Address" required/>
-  </div>
-<p></p>
-  <div>
-    <input type="number" name="weight" placeholder="Weight" />
-  </div>
-   <div>
-    <input type="number" name="hight" placeholder="Hight" />
-  </div>
-  <div>
-    <input type="text" name="age" placeholder="Age" />
-  </div>
-<p></p>
-<p>Gender:</p>
-  <div>
-    <input type="radio" name="sex" value="Male"/>
-  </div>
-  <div>
-  <input type="radio" name="sex" value="Female"/>
-  </div>
+	<div>
+		{% csrf_token %} 
+		<div class="row">
+			<div class="col-md-6">
+				<p></p>
+				<input type="text" name="address" placeholder="Address" required/>
+			</div>
+			<p></p>
+
+		</div>
+	</div>
+	<p></p>
+	<div>
+		<input type="number" name="phone" placeholder="Phone number" />
+	</div>
 
 
-<button type="submit" class="btn btn-primary">Save</button>
+	<div class="row">
+		<div class="col-md-6">
+			<p></p>
+			<div>
+				<input type="number" name="weight" placeholder="Weight" />
+			</div>
+			<p></p>
+			<div>
+				<input type="number" name="hight" placeholder="Hight" />
+			</div>
+			<p></p>
+			<div>
+				<input type="text" name="age" placeholder="Age" />
+			</div>
+			<p></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h4>Gender:</h4>
+			<div>
+				<input type="radio" name="sex" value="Male">Male
+			</div>
+			<div>
+				<input type="radio" name="sex" value="Female">Female
+			</div>
+
+			<p></p>
+			<button type="submit" class="btn btn-success" style="height:50px; width:150px">Change Password</button>
+		</div>
+	</div>
+	<br></br>
+
+	<button type="submit" class="btn btn-primary" style="height:50px; width:150px">Save Changes</button>
 
 </form>			
 {% endblock content2 %}
