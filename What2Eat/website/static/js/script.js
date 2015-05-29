@@ -22,23 +22,23 @@ $(document).ready(function(){
         // Creating the table
         var $reportTableContainer = $("#table-container");
         var tableReadyData = prepare_table_data(jsonData);
-        var $table = constructTable("product-table", tableReadyData);
+        var $table = constructTable("   ", tableReadyData);
         $reportTableContainer.append($table);
 
-        $table.DataTable({
-            "scrollY": "auto",
-            "paging":   true,
-            "searching": true,
-            "ordering": true,
-            "info":     true,
-            "lengthMenu": [[10, 20, 30, 40, 50, -1], [10, 20, 30, 40, 50, "All"]]
-        });
-        console.log("ggwp")
+        // $table.DataTable({
+        //     "scrollY": "auto",
+        //     "paging":   true,
+        //     "searching": true,
+        //     "ordering": true,
+        //     "info":     true,
+        //     "lengthMenu": [[10, 20, 30, 40, 50, -1], [10, 20, 30, 40, 50, "All"]]
+        // });
+        // console.log("ggwp")
     };
 
 
     function prepare_table_data(data) {
-    table_data = [["Name", "Prepare_time", "Picture"]]
+    table_data = [["Name", "Healthiness", "Prep-time", "Portions" ,"Image"]]
             $.each(data, function(index, value) {
                 table_data_row = []
                  value.forEach(function(entry) {
@@ -59,7 +59,7 @@ $(document).ready(function(){
 
         $tableElement
             .attr("id", tableId)
-            .attr("class", "table table-striped table-bordered")
+            .attr("class", "table table-striped")
 
         $thead.append($theadRow);
         
@@ -79,11 +79,10 @@ $(document).ready(function(){
             $tr = $("<tr></tr>");
             $tbody.append($tr);
             row.forEach(function(item, index) {
-                if(index === 2) {
+                if(index === 4) {
                     $td = $("<td></td>");
                     $img = $("<img>", {src: item,
-                                       width: 100,
-                                       height: 100});
+                                       width: 200});
                     $td.append($img);
                     $tr.append($td);    
                 } else {

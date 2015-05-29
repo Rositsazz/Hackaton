@@ -28,6 +28,8 @@ products = [recipe.products for recipe in recipes]
 titles = [recipe.name for recipe in recipes]
 prepare_times = [recipe.prepare_time for recipe in recipes]
 images = [recipe.image for recipe in recipes]
+portions = [recipe.servings for recipe in recipes]
+coefs = [recipe.healthy_coef for recipe in recipes]
 
 tfidf_matrix = tfidf_vectorizer.fit_transform(products)
 
@@ -48,10 +50,12 @@ def suggested(last_cooked):
     print(title_result)
     prepare_times_result = [prepare_times[index] for index in indices[0]]
     images_result = [images[index] for index in indices[0]]
+    portion_results = [portions[index] for index in indices[0]]
+    coef_result = [coefs[index] for index in indices[0]]
 
     data = {}
     for i in range(1, len(title_result)):
-        data[i] = [title_result[i], prepare_times_result[i], images_result[i]]
+        data[i] = [title_result[i], coef_result[i], prepare_times_result[i], portion_results[i], images_result[i]]
     print(data)
 
     with open("suggested_recipes.json", 'w') as f:
