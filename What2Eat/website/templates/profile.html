@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content2%}
+<h2>Hello, Master {{ user.username }}!</h2>
+<hr></hr>
+<style type="text/css">
+.recipe_label {
+	font-weight: bold;
+}
+.recipe_photo{
+	border-radius: 10px;
+  	border: 1px black solid;
+  	padding: 2px;
+}
+</style>
+<form method="POST" action="/profile/{{ user.id }}">
+  <div>
+  {% csrf_token %} 
+    <input type="text" name="address" placeholder="Address" required/>
+  </div>
+<p></p>
+  <div>
+    <input type="number" name="weight" placeholder="Weight" />
+  </div>
+   <div>
+    <input type="number" name="hight" placeholder="Hight" />
+  </div>
+  <div>
+    <input type="text" name="age" placeholder="Age" />
+  </div>
+<p></p>
+<p>Gender:</p>
+  <div>
+    <input type="radio" name="sex" value="Male"/>
+  </div>
+  <div>
+  <input type="radio" name="sex" value="Female"/>
+  </div>
+
+
+<button type="submit" class="btn btn-primary">Save</button>
+
+</form>			
+{% endblock content2 %}

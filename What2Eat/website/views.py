@@ -113,3 +113,15 @@ def get_suggested_recipes(request):
 
 def get_suggested(request):
     return render(request, "suggested.html")
+
+
+def profile(request):
+    if request.user.is_authenticated():
+
+        if request.method == "POST":
+            return redirect("profile.html")
+
+        if request.method == "GET":
+            return render("profile.html")
+
+    pass
