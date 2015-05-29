@@ -122,6 +122,6 @@ def profile(request):
             return redirect("profile.html")
 
         if request.method == "GET":
-            return render("profile.html")
+            return render(request, "profile.html")
 
     pass
