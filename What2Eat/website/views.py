@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Recipe
 from django.template import RequestContext
 from website import suggest_recipes
+import json
 
 
 def index(request):
@@ -107,15 +108,23 @@ def find_suggested_recipes(request, recipe_id):
 
 def get_suggested_recipes(request):
     with open("suggested_recipes.json", "r") as f:
-        recipes = f.load()
-        for recipe in recipes:
-            recipe_name = recipe[0]
-            coef =
+        content = f.read()
+
     return HttpResponse(content)
 
 
-def get_suggested(request): 
-    return render(request, "suggested.html", locals())
+def get_suggested(request):
+
+        with open("suggested_recipes.json", "r") as f:
+            content = f.read()
+            content = json.loads(content)
+
+        recipes = []
+
+        for recipe in content.keys():
+            recipes.append(Recipe.objects.get(name=content[recipe][0]))
+
+        return render(request, "recipes.html", locals())
 
 
 def profile(request):
