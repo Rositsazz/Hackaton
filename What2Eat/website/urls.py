@@ -13,4 +13,5 @@ urlpatterns = patterns('website.views',
     url(r'^get_suggested_recipes/$', 'get_suggested_recipes'),
     url(r'^find_suggested_recipes/(?P<recipe_id>[0-9]+)/$', 'find_suggested_recipes'),
     url(r'^openrecipe/(?P<recipe_id>[0-9]+)/$', 'openrecipe'),
+    url(r'^profile/$', 'profile'),
 )
