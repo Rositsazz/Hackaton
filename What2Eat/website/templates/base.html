@@ -30,7 +30,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>  
-        <a style="margin-top:17px;font-weight:bolder" class="navbar-brand" href="#">What2Eat</a>
+        <a style="margin-top:17px;font-weight:bolder" class="navbar-brand" href="/">What2Eat</a>
       </div>
       <div align="right" id="navbar" class="navbar-collapse collapse ">
         {% if user.is_authenticated %}
@@ -41,9 +41,11 @@
           </button>
         </a>
         <div class="col-md-10">
+          <a href="{% url 'profile' %}">
           <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:22px;">
           <span class="glyphicon glyphicon-user"></span>
           Profile</button>
+          </a>
         </div>
         {% else %}
         <div class="row">
@@ -58,12 +60,12 @@
               </a>
             </div>
             <div class="col-md-6">
-              <a href="{% url 'register' %}"
-              <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:15px">
-              Registration
-              <span class="glyphicon glyphicon-book"></span>
-              </button>
-            </a>
+              <a href="{% url 'register' %}">
+                <button type="button" class="btn btn-success" style="font-weight:bolder;margin-top:15px">
+                Registration
+                <span class="glyphicon glyphicon-book"></span>
+                </button>
+              </a>
           </div>
 
         </form>
@@ -80,7 +82,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div style="height:50px" class="jumbotron" >
+<div style="height:100px" class="jumbotron" >
   <div class="container">
 
     {% block content2%}
