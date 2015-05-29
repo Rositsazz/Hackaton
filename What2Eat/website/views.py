@@ -135,5 +135,3 @@ def profile(request):
 
         if request.method == "GET":
             return render(request, "profile.html")
-
-    pass
