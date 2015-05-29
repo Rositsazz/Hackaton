@@ -35,6 +35,10 @@ class Recipe(models.Model):
     keywords = models.CharField(max_length=1000)
     servings = models.PositiveSmallIntegerField()
 
+    @property
+    def products_html(self):
+        return self.products.replace('\n', '<br />')
+
     def __str__(self):
         return self.name
 

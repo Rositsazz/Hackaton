@@ -6,7 +6,8 @@
 		<tr>
 			<th>Name</th>
 			<th>Healthy coefficient</th>
-			<th>Time for prepare</th>
+			<th>Preparation time</th>
+			<th>Portions</th>
 			<th>Image</th>
 		</tr>
 	</thead>
@@ -15,6 +16,7 @@
 			<td>{{ recipe.name }}</td>
 			<td>{{ recipe.healthy_coef }}</td>
 			<td>{{ recipe.prepare_time }} mins</td>
+			<td>{{ recipe.servings }}</td>
 			<td><img src="{{ recipe.image }}" width="200" /></td>
 			<td>
 				<a href="/openrecipe/{{ recipe.id }}/">
