@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content2%}
+<h2>Hello, Master {{ user.username }}!</h2>
+<hr></hr>
+<p>
+	<h2>{{ recipe.name }}</h2>
+</p> 
+<style type="text/css">
+.recipe_label {
+	font-weight: bold;
+}
+.recipe_photo{
+	border-radius: 10px;
+  	border: 1px black solid;
+  	padding: 2px;
+}
+</style>
+<div class="row">
+	<div class="col-md-7">
+		<p>
+			<span class="recipe_label">Healthy coefficient: </span>
+			{{ recipe.healthy_coef }}
+		</p>
+		<p>
+			<span class="recipe_label">Preparation time: </span>
+			{{ recipe.prepare_time }} mins
+		</p>
+		<p>
+			<span class="recipe_label">Portions: </span>
+			{{ recipe.servings }}
+		<p>
+			<span class="recipe_label">Necessary products: </span>
+			<br />
+			{% autoescape off %}{{ recipe.products_html }}{% endautoescape %}
+		</p>
+		<p>
+			<span class="recipe_label">How to prepare: </span>
+			{{ recipe.instructions }}
+		</p>
+		<div>
+			<a href="/find_suggested_recipes/{{ recipe.id }}/">
+				<button class="btn btn-primary">Similar recipes</button>
+			</a>
+		</div>
+
+	</div>
+	<p class="col-md-5"><img class="recipe_photo" src="{{ recipe.image }}" width="457" /></p>
+</div>
+{% endblock content2 %}
