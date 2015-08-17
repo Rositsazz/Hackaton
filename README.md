@@ -19,7 +19,7 @@
  * Добавяне на функционалност за закупуване на нужните продукти чрез приложението.
 
 
-Как да стартирате приложението:
+##Как да стартирате приложението:
 - pip install -r requirements.txt
 - python3 manage.py makemigrations
 - python3 manage.py migrate
